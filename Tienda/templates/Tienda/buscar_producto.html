@@ -1,0 +1,22 @@
+{% extends "Tienda/base.html" %}
+
+{% block content %}
+<h2>Buscar Producto</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+
+{% if resultados %}
+    <h3>Resultados:</h3>
+    <ul>
+        {% for producto in resultados %}
+            <li>{{ producto.nombre }} - ${{ producto.precio }}</li>
+        {% empty %}
+            <li>No se encontraron productos.</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
+
