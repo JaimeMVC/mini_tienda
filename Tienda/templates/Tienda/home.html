@@ -1,7 +1,39 @@
 {% extends "Tienda/base.html" %}
 
 {% block content %}
-<h2>Bienvenido al sistema Mini E-commerce</h2>
-<p>Usá el menú para navegar.</p>
-{% endblock %}
+<style>
+    .home-hero {
+        background: linear-gradient(to right, #667eea, #764ba2);
+        color: white;
+        padding: 80px 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
+    .home-hero h1 {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .home-hero p {
+        font-size: 1.25rem;
+    }
+
+    .home-buttons a {
+        margin: 8px;
+    }
+</style>
+
+<div class="home-hero text-center">
+    <h1>Bienvenido a Mini E-commerce</h1>
+    <p>Gestioná productos, clientes y pedidos de forma simple y efectiva.</p>
+
+    <div class="home-buttons mt-4">
+        <a href="{% url 'crear_producto' %}" class="btn btn-light">➕ Producto</a>
+        <a href="{% url 'crear_cliente' %}" class="btn btn-light">👤 Cliente</a>
+        <a href="{% url 'crear_metodo_pago' %}" class="btn btn-light">💳 Método de Pago</a>
+        <a href="{% url 'crear_pedido' %}" class="btn btn-light">🛒 Pedido</a>
+        <a href="{% url 'buscar_producto' %}" class="btn btn-light">🔍 Buscar</a>
+    </div>
+</div>
+{% endblock %}
